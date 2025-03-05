@@ -60,7 +60,7 @@ public class ProductService {
             Product product = productRepository.save(dto.toEntity(member));
 
             // redis 재고에 추가
-            stockInventoryService.increaseStock(product.getId(), dto.getStockQuantity());
+            stockInvetoryService.increaseStock(product.getId(), dto.getStockQuantity());
 
             // aws에 image 저장 후 url 추출
             MultipartFile image = dto.getProductImage();
